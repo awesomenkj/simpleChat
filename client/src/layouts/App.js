@@ -74,7 +74,28 @@ const App = ({ defaults }) => {
           }
         })
         .catch(err => console.log(err))
-    }
+    } else if (newUsername) {
+        fetch(`${host}v1/rooms/create`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json;charset=utf-8',
+          },
+          body: JSON.stringify({
+            username: newUsername,
+          }),
+        })
+          .then(response => response.json())
+          .then(result => {
+            if (result.data._id) {
+              store.setItem('SChatUsername', newUsername)
+              setUsername(newUsername)
+              setRoomId(result.data._id)
+              setIsRegistered(true)
+              window.history.pushState({ roomId: result.data._id, username: newUsername }, '',  `/room/${  result.data._id}`)
+            }
+          })
+          .catch(err => console.log(err))
+      }
   }
 
   return (
