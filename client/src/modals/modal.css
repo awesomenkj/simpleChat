@@ -1,0 +1,126 @@
+/* Modal */
+.modal {
+  pointer-events: initial;
+  display: none;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  left: 0;
+  top: 0;
+}
+
+.modal.show {
+  display: block;
+  position: absolute;
+}
+
+.modal .content {
+  position: relative;
+  overflow: hidden;
+  min-width: 280px;
+  margin: auto 1.5rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  box-shadow: 0 20px 35px 0 rgba(0,0,0,.3), 0 0 35px 0 rgba(0,0,0,.22);
+  border-radius: 12px;
+  width: 50%;
+}
+
+.modal .modal_mask {
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: rgba(0,0,0,.4);
+}
+
+.modal .content .header {
+  text-align: right;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.35rem 1.5rem;
+}
+
+.modal .content .header .header_text {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.modal .content .header #close_button {
+  padding: 0.5rem 1.5rem 1rem;
+  background: transparent;
+  border: 0;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 2rem;
+  line-height: 0.75;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.modal .content .header #close_button:hover {
+  background-color: #f1f1f1;
+}
+
+.modal .content .row {
+  padding: 20px 24px 8px;
+  line-height: 24px;
+  margin: 1rem 0;
+}
+
+.modal .content .row .actions {
+   display: flex;
+   align-items: center;
+ }
+
+.modal .content .row > label {
+  display: block;
+  margin-bottom: 1rem;
+  color: var(--background_color);
+}
+.modal .content .row .input {
+  width: 50%;
+  padding: 0.35rem;
+  border-radius: 0.35rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.modal .content .row .input input, .modal .content .row .input label {
+  cursor: pointer;
+}
+
+.modal .content .row .input:hover {
+  background-color: #f5f5f5;
+}
+
+.modal .content .row .input input {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 0;
+  margin-right: 0.5rem;
+}
+
+.modal label, .modal button {
+  font-size: 1.5rem;
+}
+
+.modal #reset_button {
+  display: block;
+  padding: 0.75rem 1rem;
+  background: transparent;
+  border: 0;
+  margin: 2rem auto 1rem;
+  color: #555;
+  cursor: pointer;
+}
+
+.modal #reset_button:hover {
+  background-color: #f1f1f1;
+}
