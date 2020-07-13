@@ -27,7 +27,14 @@ const Chat = ({ username, roomId }) => {
 
       <ChatInput username={username} roomId={roomId} chatKeys={chatKeys} />
 
-      
+      {showSettingsModal && <Settings
+        showModal={true}
+        dateFormat={dateFormat}
+        chatKeys={chatKeys}
+        onClose={handleSettingsModal}
+        setChatKeys={setChatKeys}
+        setDateFormat={setDateFormat}
+      />}
   </div>)
 }
 
