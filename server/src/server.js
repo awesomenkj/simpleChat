@@ -26,6 +26,38 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use(api)
 
+// const connect = require("./db/connection");
+io.origins('*:*')
+
+io.on('connection', socket => {
+  console.log("user connected");
+  console.log('socket.handshake.query:', socket.handshake.query)
+
+  socket.on("disconnect", function() {
+    console.log("user disconnected");
+  });
+
+  //Someone is typing
+  socket.on("typing", data => {
+    socket.broadcast.emit("notifyTyping", {
+      user: data.user,
+      message: data.message
+    });
+  });
+
+  //when soemone stops typing
+  socket.on("stopTyping", () => {
+    socket.broadcast.emit("notifyStopTyping");
+  });
+
+  socket.on("chat message", function(msg) {
+    console.log("message: " + msg);
+    const roomId = socket.handshake.query.roomId
+    if (roomId === msg.roomId) {
+      sendMessages(io, msg)
+    }
+  })
+})
 
 
 server.listen(port, onListening)
