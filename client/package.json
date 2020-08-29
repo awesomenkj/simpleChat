@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "SimpleChat React",
   "main": "src/index.js",
-  "author": "Evgeny Sysmanov",
+  "author": "Jake KaKu",
   "private": true,
   "scripts": {
     "start": "webpack-dev-server --port=5000 --history-api-fallback  --config webpack.dev.js --open --hot",
